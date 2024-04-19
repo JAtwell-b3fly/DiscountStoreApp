@@ -14,17 +14,23 @@ import {
 } from "@shopify/polaris";
 
 import { useState } from "react";
+import couponlist from "./coupons.json";
 
 export default function DashboardPage() {
 
-  const [selectedCode, setSelectedCode] = useState({});
+  const [selectedCode, setSelectedCode] = useState(null);
+  const [coupons, setCoupons] = useState(couponlist)
 
   const handleViewCode = () => {
+    const selectedCoupon = coupons.filter((coupon) => coupon.id === id);
 
+    setSelectedCode(selectedCoupon);
   }
 
-  const handleDeleteCode = () => {
+  const handleDeleteCode = (id) => {
+    const updatedCoupons = coupons.filter((coupon) => coupon.id !== id);
 
+    setCoupons(updatedCoupons);
   }
 
   const handleNewCode = () => {
@@ -39,12 +45,12 @@ export default function DashboardPage() {
           areas={{
             xs: ['heading', 'couponCards', 'dashboardOptions'],
             sm: [
-              'heading heading heading heading',
-              'couponCards couponCards dashboardOptions dashboardOptions',
+              'heading heading couponCards couponCards',
+              'couponCards couponCards couponCards couponCards',
             ],
-            md: ['couponCards heading heading dashboardOptions'],
-            lg: ['heading heading heading heading couponCards dashboardOptions'],
-            xl: ['heading heading couponCards couponCards dashboardOptions dashboardOptions'],
+            md: ['couponCards couponCards couponCards couponCards'],
+            lg: ['heading heading couponCards couponCards couponCards couponCards'],
+            xl: ['heading heading couponCards couponCards couponCards couponCards'],
           }}
         >
           <Grid.Cell area="heading">
@@ -56,73 +62,18 @@ export default function DashboardPage() {
           </Grid.Cell>
           <Divider />
           <Grid.Cell area="couponCards">
-
-            <Card height="60px" width="60px">
-              <Text>Code Name</Text>
-              <Text>Discount value</Text>
-              <Text>Expiry date</Text>
-              <Text>Status</Text>
-              <Box>
-                <Button variant="primary">View</Button>
-                <Button  variant="primary" tone="critical">Delete</Button>
-              </Box>
-            </Card>
-
-            <Card height="60px" width="60px">
-              <Text>Code Name</Text>
-              <Text>Discount value</Text>
-              <Text>Expiry date</Text>
-              <Text>Status</Text>
-              <Box>
-                <Button variant="primary">View</Button>
-                <Button variant="primary" tone="critical">Delete</Button>
-              </Box>
-            </Card>
-
-            <Card height="60px" width="60px">
-              <Text>Code Name</Text>
-              <Text>Discount value</Text>
-              <Text>Expiry date</Text>
-              <Text>Status</Text>
-              <Box>
-                <Button variant="primary">View</Button>
-                <Button variant="primary" tone="critical">Delete</Button>
-              </Box>
-            </Card>
-          </Grid.Cell>
-          <Grid.Cell area="dashboardOptions">
-          <Card height="60px" width="60px">
-              <Text>Code Name</Text>
-              <Text>Discount value</Text>
-              <Text>Expiry date</Text>
-              <Text>Status</Text>
-              <Box>
-                <Button variant="primary">View</Button>
-                <Button variant="primary" tone="critical">Delete</Button>
-              </Box>
-            </Card>
-
-            <Card height="60px" width="60px">
-              <Text>Code Name</Text>
-              <Text>Discount value</Text>
-              <Text>Expiry date</Text>
-              <Text>Status</Text>
-              <Box>
-                <Button variant="primary">View</Button>
-                <Button variant="primary" tone="critical">Delete</Button>
-              </Box>
-            </Card>
-
-            <Card height="60px" width="60px">
-              <Text>Code Name</Text>
-              <Text>Discount value</Text>
-              <Text>Expiry date</Text>
-              <Text>Status</Text>
-              <Box>
-                <Button variant="primary">View</Button>
-                <Button variant="primary" tone="critical">Delete</Button>
-              </Box>
-            </Card>
+          {coupons.map((coupon, index) => (
+            <Card height="60px" width="60px" key={index}>
+            <Text>Code Name: {coupon.codeName}</Text>
+            <Text>Discount value: R {coupon.discountValue}</Text>
+            <Text>Expiry date: {coupon.expiryDate}</Text>
+            <Text>Status: {coupon.status}</Text>
+            <Box>
+              <Button variant="primary" onClick={() => handleViewCode(coupon.id)}>View</Button>
+              <Button  variant="primary" tone="critical" onClick={() => handleDeleteCode(coupon.id)}>Delete</Button>
+            </Box>
+          </Card>
+          ))}
           </Grid.Cell>
         </Grid>
       </LegacyCard>

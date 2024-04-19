@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "codeName": "SALE20",
+    "discountValue": 20,
+    "expiryDate": "2024-06-30",
+    "usage": "First-time customers only",
+    "status": "Available"
+  },
+  {
+    "id": 2,
+    "codeName": "50OFF",
+    "discountValue": 50,
+    "expiryDate": "2024-08-15",
+    "usage": "For orders over $100",
+    "status": "Available"
+  },
+  {
+    "id": 3,
+    "codeName": "FREESHIP",
+    "discountValue": 100,
+    "expiryDate": "2024-07-31",
+    "usage": "Free shipping on all orders",
+    "status": "Available"
+  },
+  {
+    "id": 4,
+    "codeName": "FLASHSALE",
+    "discountValue": 30,
+    "expiryDate": "2024-05-20",
+    "usage": "Limited-time offer",
+    "status": "Used"
+  },
+  {
+    "id": 5,
+    "codeName": "WELCOME10",
+    "discountValue": 10,
+    "expiryDate": "2024-09-30",
+    "usage": "New customers only",
+    "status": "Available"
+  },
+  {
+    "id": 6,
+    "codeName": "25PERCENT",
+    "discountValue": 25,
+    "expiryDate": "2024-07-15",
+    "usage": "25% off your entire purchase",
+    "status": "Available"
+  },
+  {
+    "id": 7,
+    "codeName": "SPRINGSALE",
+    "discountValue": 15,
+    "expiryDate": "2024-06-15",
+    "usage": "Spring season promotion",
+    "status": "Available"
+  },
+  {
+    "id": 8,
+    "codeName": "FALL2024",
+    "discountValue": 20,
+    "expiryDate": "2024-10-31",
+    "usage": "Fall 2024 sale",
+    "status": "Available"
+  },
+  {
+    "id": 9,
+    "codeName": "LOYALTY25",
+    "discountValue": 25,
+    "expiryDate": "2024-12-31",
+    "usage": "Exclusive offer for loyal customers",
+    "status": "Available"
+  },
+  {
+    "id": 10,
+    "codeName": "SUMMERDEAL",
+    "discountValue": 40,
+    "expiryDate": "2024-08-31",
+    "usage": "Summer clearance sale",
+    "status": "Available"
+  }
+]
